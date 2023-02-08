@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel Nilai Mahasiswa</title>
+</head>
+<body>
+    <table border="1" width="653px" height="280px">
+        <caption>Tugas 1 - Tabel Nilai Mahasiswa</caption>
+        <thead>
+        <tr bgcolor="blueocean">
+            <th width="50px">No</th>
+            <th>Nama</th>
+            <th>NIM</th>
+            <th>Nilai</th>
+            <th width="70px">Range Nilai</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            var data = [
+                {
+                    "Nama":"Boy", "NIM":123, "Nilai":60 
+                },
+                {
+                    "Nama":"Aldi", "NIM":124, "Nilai":70
+                },
+                {
+                    "Nama":"Ade", "NIM":125, "Nilai":40
+                },
+                {
+                    "Nama":"Randy", "NIM":126, "Nilai":90
+                },
+                {
+                    "Nama":"Sipa", "NIM":127, "Nilai":88
+                },
+                {
+                    "Nama":"Pomad", "NIM":128, "Nilai":32
+                },
+                {
+                    "Nama":"Dino", "NIM":125, "Nilai":50
+                },
+                {
+                    "Nama":"Nurhafni", "NIM":134, "Nilai":100
+                },
+                {
+                    "Nama":"Sarlini", "NIM":110, "Nilai":99
+                },
+                {
+                    "Nama":"Alya", "NIM":109, "Nilai":100
+                }];
+        
+        var list;
+        var nMutu;
+        for (var i = 0; i < data.length; i++) {
+            list = $('<tr/>');
+            list.append('<td>' + (i+1) + "</td>");
+            list.append('<td>' + data[i].Nama + "</td>");
+            list.append('<td>' + data[i].NIM + "</td>");
+            list.append('<td>' + data[i].Nilai + "</td>");
+
+            if(data[i].Nilai>=80){
+                nMutu = "A";
+            }else if(data[i].Nilai >= 70 && data[i].Nilai < 80){
+                nMutu = "AB";
+            }else if(data[i].Nilai >= 60 && data[i].Nilai < 70){
+                nMutu = "B";
+            }else if(data[i].Nilai >= 50 && data[i].Nilai < 60){
+                nMutu = "BC";
+            }else if(data[i].Nilai >= 40 && data[i].Nilai < 50){
+                nMutu = "C";
+            }else if(data[i].Nilai >= 10 && data[i].Nilai < 40){
+                nMutu = "D";
+            }else if(data[i].Nilai < 10){
+                nMutu = "E";
+            }else{
+                nMutu = null;
+            }
+            list.append('<td>' + nMutu + "</td>");
+            $('table').first().append(list);
+            }    
+        });
+    </script>
+</body>
+</html>
